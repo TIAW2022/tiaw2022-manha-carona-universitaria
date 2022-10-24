@@ -1,0 +1,115 @@
+body{
+  background-image: url("img/rua.jpg") ;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: none;
+
+}
+
+.navbar a{
+    color: white;
+}
+
+.navbar {
+    background: #545454;
+}
+
+.navbar-brand{
+    display: flex;
+    justify-content: left;
+}
+
+.panel h1{ color:#e3b900; font-size:28px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:14px; margin-bottom:30px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 49px;
+  line-height: 50px;
+}
+.container{
+    width: 100vw;
+    height: 87.20vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border: 2px solid #44444457;
+  border-radius: 10px;
+  max-width: 100%;
+  padding: 70px 70px 70px 71px;
+  opacity: 90%;
+}
+
+.login-form .form-group {
+  margin-bottom:10px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #e3b900 none repeat scroll 0 0;
+  border-color: #e3b900;
+  color: #ffffff;
+  font-size: 15px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  padding: 0;
+}
+.forgot {
+  text-align: right; margin-bottom:20px;
+}
+
+.conectado label{
+  color: #777777;
+  font-size: 14px;
+}
+
+.conectado{
+    text-align: left; margin-bottom:5px;
+}
+.botto-text {
+  color: #ffffff;
+  font-size: 14px;
+  margin: auto;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.rod{
+  background: #545454;
+  padding: 1em;
+}
+
+.rod h5{
+    text-align: center;
+    color: white;
+}
+
+.cadastro a{
+  color: #e3b900;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.cadastro p{
+  color: #3f3e3e;
+}
+
+.cadastro {
+  margin-top: 1em;
+}
