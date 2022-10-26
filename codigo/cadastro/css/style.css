@@ -1,4 +1,4 @@
-body{
+body {
   background-image: url("/tiaw2022-manha-carona-universitaria/codigo/cadastro/img/carona.jpg");
   background-position: center;
   background-size: cover;
@@ -6,101 +6,203 @@ body{
   background-blend-mode: none;
 }
 
-.centered-form{
-	margin-top: 50px;
+.centered-form {
+  margin-top: 50px;
 }
 
-.centered-form .panel{
-	background: rgba(255, 255, 255, 0.8);
-	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+.centered-form .panel {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
 
 .navbar a {
   color: white;
 }
 
+.navbar img {
+  height: 55px;
+  width: 55px;
+}
+
 .navbar {
   background: #545454;
+  margin-bottom: -12px;
 }
 
 .rod {
   background: #545454;
-  padding: 0.8em;
-  margin-top: -60px;
+  bottom: 0;
+  left: 0;
+  height: 60px;
+  position: fixed;
+  padding: 0.2em;
+  width: 100%;
 }
 
 .rod h4 {
   text-align: center;
   color: white;
+  padding: 0.6em;
 }
 
-.container
-{
-   height: 94.2vh;
-   width: 85.70vw;
-   opacity: 100%;
+.container {
+  height: 92.2vh;
+  width: 90vw;
+  opacity: 90%;
 }
 
-
-#botao1
-{
-    margin-top: 30px;
+#botao1 {
+  margin-top: 30px;
 }
 
 #picture__input {
-    display: none;
-  }
-  
-  .picture {
-    width: 600px;
-    aspect-ratio: 16/9;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-    border: 2px dashed currentcolor;
-    cursor: pointer;
-    font-family: sans-serif;
-    transition: color 300ms ease-in-out, background 300ms ease-in-out;
-    outline: none;
-    overflow: hidden;
-    max-width: 100%;
-  }
-  
-  .picture:hover {
-    color: #777;
-    background: #ccc;
-  }
-  
-  .picture:active {
-    border-color: turquoise;
-    color: turquoise;
-    background: #eee;
-  }
-  
-  .picture:focus {
-    color: #777;
-    background: #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .picture__img {
-    max-width: 100%;
+  display: none;
+}
+
+.picture {
+  width: 600px;
+  aspect-ratio: 16/9;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  border: 2px dashed currentcolor;
+  cursor: pointer;
+  font-family: sans-serif;
+  transition: color 300ms ease-in-out, background 300ms ease-in-out;
+  outline: none;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.picture:hover {
+  color: #777;
+  background: #ccc;
+}
+
+.picture:active {
+  border-color: turquoise;
+  color: turquoise;
+  background: #eee;
+}
+
+.picture:focus {
+  color: #777;
+  background: #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.picture__img {
+  max-width: 100%;
+}
+
+.cadastro {
+  text-align: center;
+}
+
+.btn-block {
+  background-color: #e3b900;
+  border: solid 4px #e3b900;
+  border-radius: 30px;
+}
+
+/* Responsividade do rodapé Iphone SE */
+@media (max-height: 667px) {
+  footer .rod {
+    background: #545454;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 0.2em;
+    position: fixed;
+    width: 100%;
   }
 
-  .cadastro
-  {
+  footer .rod h4 {
     text-align: center;
+    color: white;
+    padding: 0.2em;
+  }
+  .container {
+    height: 92.2vh;
+    width: 90vw;
+    margin-bottom: 120px;
+    opacity: 90%;
+  }
+}
+
+/* Responsividade do rodapé Iphone XR */
+@media (max-height: 896px) {
+  footer .rod {
+    background: #545454;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 0.2em;
+    position: fixed;
+    width: 100%;
   }
 
-  .btn-block
-  {
-    background-color: #e3b900;
-    border: solid 4px #e3b900;
-    border-radius: 30px;
+  footer .rod h4 {
+    text-align: center;
+    color: white;
+    padding: 0.2em;
+  }
+  .container {
+    height: 92.2vh;
+    width: 90vw;
+    opacity: 90%;
+  }
+}
+
+/* Responsividade do rodapé Galaxy S8+ */
+@media (max-height: 740px) {
+  footer .rod {
+    background: #545454;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 0.2em;
+    position: fixed;
+    width: 100%;
   }
 
+  footer .rod h4 {
+    text-align: center;
+    color: white;
+    padding: 0.2em;
+  }
+  .container {
+    height: 92.2vh;
+    width: 90vw;
+    margin-bottom: 100px;
+    opacity: 90%;
+  }
+}
 
+/* Responsividade do rodapé no Galaxy S20 Ultra */
+@media (max-height: 915px) {
+  footer .rod {
+    background: #545454;
+    bottom: 0;
+    left: 0;
+    height: 60px;
+    padding: 0.2em;
+    position: fixed;
+    width: 100%;
+  }
+
+  footer .rod h4 {
+    text-align: center;
+    color: white;
+    padding: 0.2em;
+  }
+  .container {
+    height: 92.2vh;
+    width: 90vw;
+    opacity: 80%;
+  }
+}
 
 
