@@ -7,12 +7,18 @@ body{
 
 }
 
+.navbar img{
+  width: 55px;
+  height: 55px;
+}
+
 .navbar a{
     color: white;
 }
-
+  
 .navbar {
     background: #545454;
+   
 }
 
 .navbar-brand{
@@ -45,7 +51,7 @@ body{
   border-radius: 10px;
   max-width: 100%;
   padding: 70px 70px 70px 71px;
-  opacity: 90%;
+  opacity: 88%;
 }
 
 .login-form .form-group {
@@ -92,12 +98,17 @@ body{
 
 .rod{
   background: #545454;
-  padding: 1em;
+  bottom: 0;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  
 }
 
 .rod h5{
     text-align: center;
     color: white;
+    padding: 0.7em;
 }
 
 .cadastro a{
