@@ -48,7 +48,7 @@ body {
 .container {
   height: 92.2vh;
   width: 90vw;
-  opacity: 80%;
+  opacity: 100%;
 }
 
 #botao1 {
@@ -128,7 +128,7 @@ body {
     height: 92.2vh;
     width: 90vw;
     margin-bottom: 120px;
-    opacity: 80%;
+    opacity: 100%;
   }
 }
 
@@ -152,7 +152,7 @@ body {
   .container {
     height: 92.2vh;
     width: 90vw;
-    opacity: 80%;
+    opacity: 100%;
   }
 }
 
@@ -177,7 +177,7 @@ body {
     height: 92.2vh;
     width: 90vw;
     margin-bottom: 100px;
-    opacity: 80%;
+    opacity: 100%;
   }
 }
 
@@ -201,7 +201,7 @@ body {
   .container {
     height: 92.2vh;
     width: 90vw;
-    opacity: 80%;
+    opacity: 100%;
   }
 }
 
