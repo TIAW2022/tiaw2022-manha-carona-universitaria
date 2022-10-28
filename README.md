@@ -4,11 +4,11 @@ O objetivo do projeto é facilitar a procura por carona pela faculdade PUC, prio
 
 ## Alunos integrantes da equipe
 
-* Duane Henrique 
-* Diego Alan
+* Duane Henrique Alves de Carvalho e Silva
+* Diego Alan de Aguiar Gonçalves
 * Ruan Pablo
 * Vitor Carvalho
-* Vitor Hugo
+* Vitor Hugo Sorrentino Reis
 * Weslei
 
 ## Professores responsáveis
