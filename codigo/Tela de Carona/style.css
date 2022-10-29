@@ -83,7 +83,7 @@ body{
     border: 2px solid #44444457;
     border-radius: 10px;
     max-width: 58%;
-    padding: 15px 95px 0px 60px;
+    padding: 15px 15px 0px 10px;
     margin:  10px 10px 10px 10px;
     opacity: 95%;
     justify-content: center; 
@@ -107,4 +107,40 @@ text-align: end;
   .foto img {
     border: 4px solid #686767;
     border-radius: 10px;
+    max-width: 100%;
   }
+
+  @media only screen and (max-width: 767px) {
+    .dropdown {
+      padding-top: 1em;
+   }
+   }
+
+   @media only screen and (max-width: 424px) {
+    .form-control {
+      width: 119%;
+
+   }
+   }
+   @media only screen and (max-width: 1189px) {
+    .menu {
+      max-width: 50%;
+    
+
+   }
+   }
+
+   @media only screen and (max-width: 923px) {
+    .menu {
+      max-width: 100%;
+      padding: 15px 15px 0px 10px;
+
+   }
+   }
+
+   @media only screen and (max-width: 490px) {
+    .rod h5 {
+      padding: 1px 15px;
+
+   }
+   }
