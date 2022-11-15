@@ -13,8 +13,8 @@ let validConfirmSenha = false
 let codigo = document.querySelector('#codigo')
 let validCodigo = false
 
-let msgErro = document.querySelector('#msgErro')
-let msgSucesso = document.querySelector('#msgSucesso')
+let msgError = document.querySelector('#msgError')
+let msgSuccess = document.querySelector('#msgSuccess')
 
 nome.addEventListener('keyup', () => {
     if (nome.value.length >= 3)
@@ -61,7 +61,7 @@ function validatorEmail(email) {
 
 
 function cadastrar(){
-    if (validNome && validSobrenome && validEmail && validSenha && validConfirmSenha && validCodigo && validRadio && validFoto)
+    if (validNome && validSobrenome && validEmail && validSenha && validConfirmSenha && validCodigo)
     {   
     let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
 
@@ -77,20 +77,20 @@ function cadastrar(){
 
     localStorage.setItem('listaUser', JSON.stringify(listaUser))
 
-    msgSucesso.setAttribute('style', 'display: block')
-    msgSucesso.innerHTML = '<strong>Cadastrado com sucesso!</strong>'
-    msgErro.setAttribute('style', 'display: none')
-    msgErro.innerHTML = ''
+    msgSuccess.setAttribute('style', 'display: block')
+    msgSuccess.innerHTML = '<strong>Cadastrado com sucesso!</strong>'
+    msgError.setAttribute('style', 'display: none')
+    msgError.innerHTML = ''
 
     setTimeout(()=>{
         window.location.href = 'http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/cadastro/cadastro.html'
     }, 3000)
 
     } else {
-    msgErro.setAttribute('style', 'display: block')
-    msgErro.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar!</strong>'
-    msgSucesso.innerHTML = ''
-    msgSucesso.setAttribute('style', 'display: none')
+    msgError.setAttribute('style', 'display: block')
+    msgError.innerHTML = '<strong>Preencha todos os campos corretamente antes de cadastrar!</strong>'
+    msgSuccess.innerHTML = ''
+    msgSuccess.setAttribute('style', 'display: none')
     }
 }
 }
