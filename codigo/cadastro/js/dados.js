@@ -29,7 +29,7 @@ sobrenome.addEventListener('keyup', () => {
     }
 })
 email.addEventListener('keyup', () => {
-    if (email.value.length >= 3)
+    if (email.value.length >= 3 && validatorEmail(email.value) == true)
     {
         validEmail = true
     }
@@ -41,7 +41,7 @@ senha.addEventListener('keyup', () => {
     }
 })
 confirmaSenha.addEventListener('keyup', () => {
-    if (confirmaSenha.value.length >= 6 && senha.value == confirmaSenha.value)
+    if (confirmaSenha.value.length >= 6 && confirmaSenha.value == senha.value)
     {
         validConfirmSenha = true
     }
