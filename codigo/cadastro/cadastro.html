@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +9,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="/tiaw2022-manha-carona-universitaria/codigo/cadastro/css/style.css">
     <title>Cadastro do Usuário</title>
+    <script src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/dados.js"></script>
 </head>
 
 <header>
@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                        <input type="text" name="first_name" id="nome" class="form-control input-sm" placeholder="Nome" required maxlength="45">
+                                    <input type="text" name="first_name" id="nome" class="form-control input-sm" placeholder="Nome" required maxlength="45">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
@@ -93,7 +93,7 @@
                             <strong>Já é cadastrado?<a style="color: #e3b900;" href="/tiaw2022-manha-carona-universitaria/codigo/login/index.html"> Login</a></strong>
                         </div>
                         
-                        <input type="submit" value="Cadastrar" class="btn-block" onclick="cadastrar()" id="botao1">
+                        <button  id="botao1" onclick="cadastrar()" class="btn-block">Cadastrar</button>
                     
                     </form>
                 </div>
@@ -103,7 +103,6 @@
 </div>
 
 <script src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/foto.js"></script>
-<script src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/dados.js"></script>
 
 </body>
 
