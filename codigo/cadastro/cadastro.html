@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="/tiaw2022-manha-carona-universitaria/codigo/cadastro/css/style.css">
     <title>Cadastro do Usuário</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/dados.js"></script>
 </head>
 
@@ -60,25 +62,9 @@
                             <input type="number" name="codigo" id="codigo" class="form-control input-sm" placeholder="Código Pessoal" required>
                         </div>
 
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" required>
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                    Caroneiro
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" required>
-                                <label class="form-check-label" for="flexRadioDefault1">
-                                  Motorista
-                                </label>
-                              </div>
-                            </div>
+                        <div class="form-group">
+                            <input type="text" name="op" id="op" class="form-control input-sm" placeholder="Caroneiro ou Motorista ?" required>
                         </div>
-                        <br>
 
                         
                         <div class="form-group">
@@ -86,14 +72,14 @@
                             <label class="picture" for="picture__input" tabIndex="0">
                             <span class="picture__image">Foto da carteirinha PUC</span>
                             </label>                      
-                            <input type="file" name="picture__input" id="picture__input" required>
+                            <input type="file" name="picture__input" id="picture__input">
                             </div>
 
                         <div class="cadastro">
                             <strong>Já é cadastrado?<a style="color: #e3b900;" href="/tiaw2022-manha-carona-universitaria/codigo/login/index.html"> Login</a></strong>
                         </div>
                         
-                        <button  id="botao1" onclick="cadastrar()" class="btn-block">Cadastrar</button>
+                        <button style="margin-top: 30px;" id= cadastro1 onclick="cadastrar()" class="btn-block">Cadastrar</button>
                     
                     </form>
                 </div>

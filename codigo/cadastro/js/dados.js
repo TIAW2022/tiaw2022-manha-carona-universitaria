@@ -11,6 +11,9 @@ window.onload = function () {
   let validConfirmSenha = false;
   let codigo = document.querySelector("#codigo");
   let validCodigo = false;
+  let op = document.querySelector("#op");
+  let validOp = false;
+  let foto = document.querySelector("#picture__input");
 
   let msgError = document.querySelector("#msgError");
   let msgSuccess = document.querySelector("#msgSuccess");
@@ -20,6 +23,26 @@ window.onload = function () {
       /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
     return emailPattern.test(email);
   }
+
+  nome.addEventListener("keyup", () => {
+    if (nome.value.length <= 2) {
+      nome.setAttribute("style", "border-color: red");
+      validNome = false;
+    } else {
+      nome.setAttribute("style", "border-color: green");
+      validNome = true;
+    }
+  });
+
+  sobrenome.addEventListener("keyup", () => {
+    if (sobrenome.value.length <= 3) {
+      sobrenome.setAttribute("style", "border-color: red");
+      validSobrenome = false;
+    } else {
+      sobrenome.setAttribute("style", "border-color: green");
+      validSobrenome = true;
+    }
+  });
 
   email.addEventListener("keyup", () => {
     if (validatorEmail(email.value) !== true) {
@@ -31,27 +54,9 @@ window.onload = function () {
     }
   });
 
-  nome.addEventListener("keyup", () => {
-    if (nome.value.length <= 2) {
-      nome.setAttribute("style", "border-color: red");
-      validNome = false;
-    } else {
-      nome.setAttribute("style", "border-color: green");
-      validNome = true;
-    }
-  });
-  sobrenome.addEventListener("keyup", () => {
-    if (sobrenome.value.length <= 3) {
-      sobrenome.setAttribute("style", "border-color: red");
-      validSobrenome = false;
-    } else {
-      sobrenome.setAttribute("style", "border-color: green");
-      validSobrenome = true;
-    }
-  });
   senha.addEventListener("keyup", () => {
-    if (senha.value.length < 6) {
-      email.setAttribute("style", "border-color: red");
+    if (senha.value.length <= 5) {
+      senha.setAttribute("style", "border-color: red");
       validSenha = false;
     } else {
       senha.setAttribute("style", "border-color: green");
@@ -59,12 +64,12 @@ window.onload = function () {
     }
   });
   confirmaSenha.addEventListener("keyup", () => {
-    if (confirmaSenha.value.length < 6 && confirmaSenha.value != senha.value) {
+    if (confirmaSenha.value.length <= 5 && confirmaSenha.value != senha.value) {
       confirmaSenha.setAttribute("style", "border-color: red");
-      validconfirmaSenha = false;
+      validConfirmSenha = false;
     } else {
       confirmaSenha.setAttribute("style", "border-color: green");
-      validconfirmaSenha = true;
+      validConfirmSenha = true;
     }
   });
   codigo.addEventListener("keyup", () => {
@@ -77,7 +82,17 @@ window.onload = function () {
     }
   });
 
-  botao1.onclick = function cadastrar() {
+  op.addEventListener("keyup", () => {
+    if (op.value.length <= 8) {
+      op.setAttribute("style", "border-color: red");
+      validOp = false;
+    } else {
+      op.setAttribute("style", "border-color: green");
+      validOp = true;
+    }
+  });
+
+  cadastro1.onclick = function cadastrar() {
     if (
       validNome &&
       validSobrenome &&
@@ -94,6 +109,19 @@ window.onload = function () {
         emailCad: email.value,
         senhaCad: senha.value,
         codigoCad: codigo.value,
+        opcaoCad: op.value
+      });
+
+      foto.addEventListener("change", () => {
+        const fr = new FileReader();
+
+        fr.readAsDataURL(foto.files[0]);
+
+        fr.addEventListener("load", () => {
+          const url = fr.result;
+
+          localStorage.setItem("my-image", url);
+        });
       });
 
       localStorage.setItem("listaUser", JSON.stringify(listaUser));
@@ -107,6 +135,7 @@ window.onload = function () {
         window.location.href =
           "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
       }, 3000);
+
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
