@@ -92,7 +92,7 @@ window.onload = function () {
       validOp = true;
     }
   });
-  
+
   cadastro1.onclick = function cadastrar() {
     if (
       validNome &&
@@ -101,41 +101,36 @@ window.onload = function () {
       validSenha &&
       validConfirmSenha &&
       validCodigo
-      ) {
-        let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
-        
-        listaUser.push({
-          nomeCad: nome.value,
-          sobrenomeCad: sobrenome.value,
-          codigoCad: codigo.value,
-        opcaoCad: op.value
+    ) {
+      let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+
+      listaUser.push({
+        nomeCad: nome.value,
+        sobrenomeCad: sobrenome.value,
+        codigoCad: codigo.value,
+        opcaoCad: op.value,
       });
 
       let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
-      
-      emailUser.push(
-        email.value
-        );
-        
-        let senhaUser = JSON.parse(localStorage.getItem("senhaUser") || "[]");
-        senhaUser.push(
-          senha.value
-        );
-        
-        if(senha.value != confirmaSenha.value){
-          alert("Senha incorreta")
-          
-        }else{
+
+      emailUser.push(email.value);
+
+      let senhaUser = JSON.parse(localStorage.getItem("senhaUser") || "[]");
+      senhaUser.push(senha.value);
+
+      if (senha.value != confirmaSenha.value) {
+        alert("Senha incorreta");
+      } else {
         localStorage.setItem("listaUser", JSON.stringify(listaUser));
         localStorage.setItem("emailUser", JSON.stringify(emailUser));
         localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
       }
-      
+
       foto.addEventListener("change", () => {
         const fr = new FileReader();
-        
+
         fr.readAsDataURL(foto.files[0]);
-        
+
         fr.addEventListener("load", () => {
           const url = fr.result;
 
@@ -147,16 +142,15 @@ window.onload = function () {
       msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
       msgError.setAttribute("style", "display: none");
       msgError.innerHTML = "";
-      
+
       setTimeout(() => {
         window.location.href =
-        "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
+          "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
       }, 3000);
-      
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
-      "<strong>Preencha todos os campos corretamente antes de cadastrar!</strong>";
+        "<strong>Preencha todos os campos corretamente antes de cadastrar!</strong>";
       msgSuccess.innerHTML = "";
       msgSuccess.setAttribute("style", "display: none");
     }
