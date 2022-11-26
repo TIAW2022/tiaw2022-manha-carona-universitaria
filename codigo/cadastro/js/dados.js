@@ -72,6 +72,7 @@ window.onload = function () {
       validConfirmSenha = true;
     }
   });
+
   codigo.addEventListener("keyup", () => {
     if (codigo.value.length <= 6) {
       codigo.setAttribute("style", "border-color: red");
@@ -106,11 +107,24 @@ window.onload = function () {
       listaUser.push({
         nomeCad: nome.value,
         sobrenomeCad: sobrenome.value,
-        emailCad: email.value,
-        senhaCad: senha.value,
         codigoCad: codigo.value,
-        opcaoCad: op.value
+        opcaoCad: op.value,
       });
+
+      let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
+
+      emailUser.push(email.value);
+
+      let senhaUser = JSON.parse(localStorage.getItem("senhaUser") || "[]");
+      senhaUser.push(senha.value);
+
+      if (senha.value != confirmaSenha.value) {
+        alert("Senha incorreta");
+      } else {
+        localStorage.setItem("listaUser", JSON.stringify(listaUser));
+        localStorage.setItem("emailUser", JSON.stringify(emailUser));
+        localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
+      }
 
       foto.addEventListener("change", () => {
         const fr = new FileReader();
@@ -124,8 +138,6 @@ window.onload = function () {
         });
       });
 
-      localStorage.setItem("listaUser", JSON.stringify(listaUser));
-
       msgSuccess.setAttribute("style", "display: block");
       msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
       msgError.setAttribute("style", "display: none");
@@ -135,7 +147,6 @@ window.onload = function () {
         window.location.href =
           "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
       }, 3000);
-
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
