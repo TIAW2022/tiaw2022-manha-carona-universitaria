@@ -11,7 +11,7 @@ function logar() {
   if (email.value === parsedEmail && senha.value === parsedSenha) {
     alert("Usuario autenticado!");
     window.location.href =
-      "/tiaw2022-manha-carona-universitaria/codigo/tela principal/index.html";
+      "/codigo/tela principal/index.html";
   } else {
     alert("Email ou senha invalidos!");
   }

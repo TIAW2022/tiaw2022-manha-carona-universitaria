@@ -12,6 +12,8 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="/codigo/Tela de Carona/script.js"></script>
+    <script type="text/javascript" src="/codigo/cadastro/js/dados.js"></script>
     <title>Seleção de Caronas</title>
   </head>
 
@@ -98,23 +100,45 @@
   <body id="teladecarona">
     <div class="container">
 
-        <div class="main-div col-12">
-          <div class="panel">
-            <div class="row">
-              <div class="foto col-lg-4 col-md-10 col-12">
-                <img src="Imagens/João.png">
+        
+              <div class="container">
+                <div class="row" id="tela">
+                  
+        
+                  </div>
+                </div>
+              <script>
+              let str = ''
+              var cadNome = localStorage.getItem("nomeUser");
+              var cadSobrenome = localStorage.getItem("sobrenomeUser")
+              const parsedcadNome = cadNome.slice(2, cadNome.length - 2);
+              const parsedcadSobre = cadSobrenome.slice(2, cadSobrenome.length - 2);
+              console.log(parsedcadNome)
+              str += `<div class="main-div col-12">
+                        <div class="panel">
+                          <div class="row">
+                            <div class="foto col-lg-4 col-md-10 col-12">
+                              <img src="Imagens/João.png">
+                            </div>
+                            <div class="texto col-lg-8 col-md-10 col-12">
+                              <h1><strong>${parsedcadNome} ${parsedcadSobre}</strong></h1>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae libero sed dui cursus maximus. 
+                                Cras lacinia tellus nec vestibulum gravida. In venenatis metus a turpis condimentum, a tempus nisl sodales. 
+                                Sed iaculis risus et neque cursus commodo. Maecenas ultrices erat ex, non efficitur diam sagittis eu. 
+                                Aliquam interdum nulla vel bibendum finibus. Aenean dapibus gravida laoreet. Aliquam pulvinar, orci ac dapibus 
+                                fringilla, neque urna ullamcorper velit, at consequat augue enim ut nisl. Cras aliquam egestas iaculis. 
+                                Cras scelerisque ac velit eu feugiat. Nullam faucibus in felis in rutrum. Duis efficitur condimentum erat. 
+                                Quisque non fermentum tellus. Quisque quis pellentesque purus.</p>
+                            <div class="aceitar">
+                              <button type="submit" class="btn btn-info">Aceitar carona!</button>
+                            </div>  
+                        </div> 
+                  </div>
               </div>
-              <div class="texto col-lg-8 col-md-10 col-12">
-                <h1><strong>João Andrade</strong></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae libero sed dui cursus maximus. Cras lacinia tellus nec vestibulum gravida. In venenatis metus a turpis condimentum, a tempus nisl sodales. Sed iaculis risus et neque cursus commodo. Maecenas ultrices erat ex, non efficitur diam sagittis eu. Aliquam interdum nulla vel bibendum finibus. Aenean dapibus gravida laoreet. Aliquam pulvinar, orci ac dapibus fringilla, neque urna ullamcorper velit, at consequat augue enim ut nisl. Cras aliquam egestas iaculis. Cras scelerisque ac velit eu feugiat. Nullam faucibus in felis in rutrum. Duis efficitur condimentum erat. Quisque non fermentum tellus. Quisque quis pellentesque purus.</p>
-                <div class="aceitar">
-                  <button type="submit" class="btn btn-info">Aceitar carona!</button>
-                </div>  
-              </div>
-            </div>
-          </div>
-          
-        </div>
+           </div>`
+              document.getElementById('tela').innerHTML = str
+            </script>
+           
 
         <div class="main-div col-12">
           <div class="panel">

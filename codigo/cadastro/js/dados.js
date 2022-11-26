@@ -105,11 +105,15 @@ window.onload = function () {
       let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
 
       listaUser.push({
-        nomeCad: nome.value,
-        sobrenomeCad: sobrenome.value,
         codigoCad: codigo.value,
         opcaoCad: op.value,
       });
+      
+      let nomeUser = JSON.parse(localStorage.getItem("nomeUser") || "[]");
+      nomeUser.push(nome.value);
+      
+      let sobrenomeUser = JSON.parse(localStorage.getItem("sobrenomeUser") || "[]");
+      sobrenomeUser.push(sobrenome.value);
 
       let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
 
@@ -124,6 +128,8 @@ window.onload = function () {
         localStorage.setItem("listaUser", JSON.stringify(listaUser));
         localStorage.setItem("emailUser", JSON.stringify(emailUser));
         localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
+        localStorage.setItem("nomeUser", JSON.stringify(nomeUser));
+        localStorage.setItem("sobrenomeUser", JSON.stringify(sobrenomeUser));
       }
 
       foto.addEventListener("change", () => {
