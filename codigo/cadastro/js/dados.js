@@ -25,7 +25,7 @@ window.onload = function () {
   }
 
   nome.addEventListener("keyup", () => {
-    if (nome.value.length <= 2) {
+    if (nome.value.length <= 3) {
       nome.setAttribute("style", "border-color: red");
       validNome = false;
     } else {
@@ -73,7 +73,7 @@ window.onload = function () {
     }
   });
   codigo.addEventListener("keyup", () => {
-    if (codigo.value.length <= 3) {
+    if (codigo.value.length <= 6) {
       codigo.setAttribute("style", "border-color: red");
       validCodigo = false;
     } else {
