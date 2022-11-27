@@ -64,7 +64,7 @@ window.onload = function () {
     }
   });
   confirmaSenha.addEventListener("keyup", () => {
-    if (confirmaSenha.value.length <= 5 && confirmaSenha.value != senha.value) {
+    if (confirmaSenha.value.length <= 5) {
       confirmaSenha.setAttribute("style", "border-color: red");
       validConfirmSenha = false;
     } else {
@@ -116,6 +116,7 @@ window.onload = function () {
       emailUser.push(email.value);
 
       let senhaUser = JSON.parse(localStorage.getItem("senhaUser") || "[]");
+
       senhaUser.push(senha.value);
 
       if (senha.value != confirmaSenha.value) {
@@ -139,7 +140,7 @@ window.onload = function () {
       });
 
       msgSuccess.setAttribute("style", "display: block");
-      msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
+      msgSuccess.innerHTML = "<strong>Cadastrando usuário...</strong>";
       msgError.setAttribute("style", "display: none");
       msgError.innerHTML = "";
 

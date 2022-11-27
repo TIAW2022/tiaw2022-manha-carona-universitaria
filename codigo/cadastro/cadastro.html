@@ -35,12 +35,12 @@
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="first_name" id="nome" class="form-control input-sm" placeholder="Nome" required maxlength="45">
+                                    <input type="text" name="first_name" id="nome" class="form-control input-sm" placeholder="Nome" maxlength="45" required>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" name="last_name" id="sobrenome" class="form-control input-sm" placeholder="Sobrenome" required maxlength="45">
+                                    <input type="text" name="last_name" id="sobrenome" class="form-control input-sm" placeholder="Sobrenome" maxlength="45" required>
                                 </div>
                             </div>
                         </div>
@@ -72,14 +72,14 @@
                             <label class="picture" for="picture__input" tabIndex="0">
                             <span class="picture__image">Foto da carteirinha PUC</span>
                             </label>                      
-                            <input type="file" name="picture__input" id="picture__input">
+                            <input type="file" name="picture__input" id="picture__input" required>
                             </div>
 
                         <div class="cadastro">
                             <strong>Já é cadastrado?<a style="color: #e3b900;" href="/tiaw2022-manha-carona-universitaria/codigo/login/index.html"> Login</a></strong>
                         </div>
                         
-                        <button style="margin-top: 30px;" id= cadastro1 onclick="cadastrar()" class="btn-block">Cadastrar</button>
+                        <button type="button" style="margin-top: 30px;" id= cadastro1 onclick="cadastrar()" class="btn-block">Cadastrar</button>
                     
                     </form>
                 </div>
