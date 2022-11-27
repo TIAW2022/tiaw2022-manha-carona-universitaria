@@ -1,0 +1,1 @@
+var cadNome = localStorage.getItem("nomeUser");
