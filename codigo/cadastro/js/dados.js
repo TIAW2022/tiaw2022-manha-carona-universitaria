@@ -119,19 +119,12 @@ window.onload = function () {
       validConfirmSenha &&
       validCodigo
     ) {
-      let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
-
-      listaUser.push({
-        codigoCad: codigo.value,
-        opcaoCad: op.value,
-      });
 
       let nomeUser = JSON.parse(localStorage.getItem("nomeUser") || "[]");
       nomeUser.push(nome.value);
 
-      let sobrenomeUser = JSON.parse(
-        localStorage.getItem("sobrenomeUser") || "[]"
-      );
+      let sobrenomeUser = JSON.parse(localStorage.getItem("sobrenomeUser") || "[]");
+
       sobrenomeUser.push(sobrenome.value);
 
       let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
@@ -142,14 +135,23 @@ window.onload = function () {
 
       senhaUser.push(senha.value);
 
+      let codigoUser = JSON.parse(localStorage.getItem("codigoUser") || "[]");
+
+      codigoUser.push(codigo.value);
+
+      let opcaoUser = JSON.parse(localStorage.getItem("opcaoUser") || "[]");
+
+      opcaoUser.push(op.value);
+
       if (senha.value != confirmaSenha.value) {
         alert("Senha incorreta");
       } else {
-        localStorage.setItem("listaUser", JSON.stringify(listaUser));
-        localStorage.setItem("emailUser", JSON.stringify(emailUser));
-        localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
         localStorage.setItem("nomeUser", JSON.stringify(nomeUser));
         localStorage.setItem("sobrenomeUser", JSON.stringify(sobrenomeUser));
+        localStorage.setItem("emailUser", JSON.stringify(emailUser));
+        localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
+        localStorage.setItem("codigoUser", JSON.stringify(codigoUser));
+        localStorage.setItem("opcaoUser", JSON.stringify(opcaoUser));
       }
 
       msgSuccess.setAttribute("style", "display: block");
