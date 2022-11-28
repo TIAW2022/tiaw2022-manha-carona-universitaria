@@ -121,6 +121,7 @@ window.onload = function () {
     ) {
 
       let nomeUser = JSON.parse(localStorage.getItem("nomeUser") || "[]");
+      
       nomeUser.push(nome.value);
 
       let sobrenomeUser = JSON.parse(localStorage.getItem("sobrenomeUser") || "[]");
