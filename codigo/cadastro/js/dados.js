@@ -11,8 +11,8 @@ window.onload = function () {
   let validConfirmSenha = false;
   let codigo = document.querySelector("#codigo");
   let validCodigo = false;
-  let op = document.querySelector("#op");
-  let validOp = false;
+  let op = document.querySelector("#opcao");
+  let validOpcao = false;
   let foto = document.querySelector("#picture__input");
 
   let msgError = document.querySelector("#msgError");
@@ -23,6 +23,11 @@ window.onload = function () {
       /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
     return emailPattern.test(email);
   }
+
+  console.log(validatorEmail("texto@texto.com")); // true
+  console.log(validatorEmail("texto@texto")); // false
+  console.log(validatorEmail("texto.com")); // false
+  console.log(validatorEmail("texto")); // false
 
   nome.addEventListener("keyup", () => {
     if (nome.value.length <= 3) {
@@ -86,11 +91,23 @@ window.onload = function () {
   op.addEventListener("keyup", () => {
     if (op.value.length <= 8) {
       op.setAttribute("style", "border-color: red");
-      validOp = false;
+      validOpcao = false;
     } else {
       op.setAttribute("style", "border-color: green");
-      validOp = true;
+      validOpcao = true;
     }
+  });
+
+  foto.addEventListener("change", () => {
+    const fr = new FileReader();
+
+    fr.readAsDataURL(foto.files[0]);
+
+    fr.addEventListener("load", () => {
+      const url = fr.result;
+
+      localStorage.setItem("my-image", url);
+    });
   });
 
   cadastro1.onclick = function cadastrar() {
@@ -108,11 +125,13 @@ window.onload = function () {
         codigoCad: codigo.value,
         opcaoCad: op.value,
       });
-      
+
       let nomeUser = JSON.parse(localStorage.getItem("nomeUser") || "[]");
       nomeUser.push(nome.value);
-      
-      let sobrenomeUser = JSON.parse(localStorage.getItem("sobrenomeUser") || "[]");
+
+      let sobrenomeUser = JSON.parse(
+        localStorage.getItem("sobrenomeUser") || "[]"
+      );
       sobrenomeUser.push(sobrenome.value);
 
       let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
@@ -133,27 +152,10 @@ window.onload = function () {
         localStorage.setItem("sobrenomeUser", JSON.stringify(sobrenomeUser));
       }
 
-      foto.addEventListener("change", () => {
-        const fr = new FileReader();
-
-        fr.readAsDataURL(foto.files[0]);
-
-        fr.addEventListener("load", () => {
-          const url = fr.result;
-
-          localStorage.setItem("my-image", url);
-        });
-      });
-
       msgSuccess.setAttribute("style", "display: block");
-      msgSuccess.innerHTML = "<strong>Cadastrando usuário...</strong>";
+      msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
       msgError.setAttribute("style", "display: none");
       msgError.innerHTML = "";
-
-      setTimeout(() => {
-        window.location.href =
-          "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
-      }, 3000);
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
