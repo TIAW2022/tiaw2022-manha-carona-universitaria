@@ -8,10 +8,10 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="/codigo/cadastro/css/style.css">
+    <link rel="stylesheet" href="/tiaw2022-manha-carona-universitaria/codigo/cadastro/css/style.css">
     <title>Cadastro do Usuário</title>
     <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="/codigo/cadastro/js/dados.js"></script>
+    <script src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/dados.js"></script>
 </head>
 
 <header>
@@ -63,7 +63,11 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="text" name="op" id="opcao" class="form-control input-sm" placeholder="Caroneiro ou Motorista ?" required>
+                            <label for="carona">Selecione uma opção:</label>
+                            <select name="opcoes" id="opcoes" required>
+                                <option value="Caroneiro">Caroneiro</option>
+                                <option value="Motorista">Motorista</option>
+                              </select>
                         </div>
 
                         
@@ -79,7 +83,7 @@
                             <strong>Já é cadastrado?<a style="color: #e3b900;" href="/tiaw2022-manha-carona-universitaria/codigo/login/index.html"> Login</a></strong>
                         </div>
                         
-                        <button type="button" style="margin-top: 30px;" id= cadastro1 onclick="cadastrar()" class="btn-block">Cadastrar</button>
+                        <button type="button" style="margin-top: 30px;" id=cadastro1 onclick="cadastrar()" class="btn-block">Cadastrar</button>
                     
                     </form>
                 </div>

@@ -11,8 +11,15 @@ window.onload = function () {
   let validConfirmSenha = false;
   let codigo = document.querySelector("#codigo");
   let validCodigo = false;
-  let op = document.querySelector("#opcao");
-  let validOpcao = false;
+
+  // Pega o valor do select
+  let select = document.querySelector("#opcoes");
+  let variavel = "";
+  select.onchange = function () {
+    variavel = this.value;
+    console.log(variavel);
+  };
+
   let foto = document.querySelector("#picture__input");
 
   let msgError = document.querySelector("#msgError");
@@ -88,16 +95,6 @@ window.onload = function () {
     }
   });
 
-  op.addEventListener("keyup", () => {
-    if (op.value.length <= 8) {
-      op.setAttribute("style", "border-color: red");
-      validOpcao = false;
-    } else {
-      op.setAttribute("style", "border-color: green");
-      validOpcao = true;
-    }
-  });
-
   foto.addEventListener("change", () => {
     const fr = new FileReader();
 
@@ -119,46 +116,37 @@ window.onload = function () {
       validConfirmSenha &&
       validCodigo
     ) {
+      let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
 
-      let nomeUser = JSON.parse(localStorage.getItem("nomeUser") || "[]");
-      
-      nomeUser.push(nome.value);
+      listaUser.push({
+        nomeCad: nome.value,
+        sobrenomeCad: sobrenome.value,
+        emailCad: email.value,
+        senhaCad: senha.value,
+        codigoCad: codigo.value,
+        opcaoCad: variavel,
+      });
 
-      let sobrenomeUser = JSON.parse(localStorage.getItem("sobrenomeUser") || "[]");
-
-      sobrenomeUser.push(sobrenome.value);
-
-      let emailUser = JSON.parse(localStorage.getItem("emailUser") || "[]");
-
-      emailUser.push(email.value);
-
-      let senhaUser = JSON.parse(localStorage.getItem("senhaUser") || "[]");
-
-      senhaUser.push(senha.value);
-
-      let codigoUser = JSON.parse(localStorage.getItem("codigoUser") || "[]");
-
-      codigoUser.push(codigo.value);
-
-      let opcaoUser = JSON.parse(localStorage.getItem("opcaoUser") || "[]");
-
-      opcaoUser.push(op.value);
+      localStorage.setItem("listaUser", JSON.stringify(listaUser));
 
       if (senha.value != confirmaSenha.value) {
         alert("Senha incorreta");
+        msgError.setAttribute("style", "display: block");
+        msgError.innerHTML =
+          "<strong>Preencha todos os campos corretamente antes de cadastrar!</strong>";
+        msgSuccess.innerHTML = "";
+        msgSuccess.setAttribute("style", "display: none");
       } else {
-        localStorage.setItem("nomeUser", JSON.stringify(nomeUser));
-        localStorage.setItem("sobrenomeUser", JSON.stringify(sobrenomeUser));
-        localStorage.setItem("emailUser", JSON.stringify(emailUser));
-        localStorage.setItem("senhaUser", JSON.stringify(senhaUser));
-        localStorage.setItem("codigoUser", JSON.stringify(codigoUser));
-        localStorage.setItem("opcaoUser", JSON.stringify(opcaoUser));
+        msgSuccess.setAttribute("style", "display: block");
+        msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
+        msgError.setAttribute("style", "display: none");
+        msgError.innerHTML = "";
       }
 
-      msgSuccess.setAttribute("style", "display: block");
-      msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
-      msgError.setAttribute("style", "display: none");
-      msgError.innerHTML = "";
+      setTimeout(() => {
+        window.location.href =
+          "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
+      }, 3000);
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
