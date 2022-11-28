@@ -78,14 +78,7 @@ body{
   text-align: right; margin-bottom:20px;
 }
 
-.conectado label{
-  color: #777777;
-  font-size: 14px;
-}
 
-.conectado{
-    text-align: left; margin-bottom:5px;
-}
 .botto-text {
   color: #ffffff;
   font-size: 14px;
@@ -152,3 +145,12 @@ body{
   }
 
  }
+
+ /* #msgError{
+  color: #ac0808;
+  padding: 1em;
+  border: 1px solid #e40000;
+  margin-bottom: 1em;
+  background: #ffd8d8;
+  display: none;
+ }   */
