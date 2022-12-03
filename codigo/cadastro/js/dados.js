@@ -1,29 +1,14 @@
 window.onload = function () {
-  let nome = document.querySelector("#nome");
-  let validNome = false;
-  let sobrenome = document.querySelector("#sobrenome");
-  let validSobrenome = false;
-  let email = document.querySelector("#email");
-  let validEmail = false;
-  let senha = document.querySelector("#senha");
-  let validSenha = false;
-  let confirmaSenha = document.querySelector("#confirmaSenha");
-  let validConfirmSenha = false;
-  let codigo = document.querySelector("#codigo");
-  let validCodigo = false;
+  var listaUser = [];
 
-  // Pega o valor do select
-  let select = document.querySelector("#opcoes");
-  let variavel = "";
-  select.onchange = function () {
-    variavel = this.value;
-    console.log(variavel);
-  };
+  var foto = document.querySelector("#picture__input");
 
-  let foto = document.querySelector("#picture__input");
-
-  let msgError = document.querySelector("#msgError");
-  let msgSuccess = document.querySelector("#msgSuccess");
+  var validNome = false;
+  var validSobrenome = false;
+  var validEmail = false;
+  var validSenha = false;
+  var validConfirmSenha = false;
+  var validCodigo = false;
 
   function validatorEmail(email) {
     let emailPattern =
@@ -108,6 +93,17 @@ window.onload = function () {
   });
 
   cadastro1.onclick = function cadastrar() {
+    var nome = document.querySelector("#nome").value;
+    var sobrenome = document.querySelector("#sobrenome").value;
+    var email = document.querySelector("#email").value;
+    var senha = document.querySelector("#senha").value;
+    var confirmaSenha = document.querySelector("#confirmaSenha").value;
+    var select = document.querySelector("#opcoes").value;
+    var codigo = document.querySelector("#codigo").value;
+
+    var msgError = document.querySelector("#msgError");
+    var msgSuccess = document.querySelector("#msgSuccess");
+
     if (
       validNome &&
       validSobrenome &&
@@ -116,18 +112,17 @@ window.onload = function () {
       validConfirmSenha &&
       validCodigo
     ) {
-      let listaUser = JSON.parse(localStorage.getItem("listaUser") || "[]");
+      var novoUsuario = {
+        nomeUsuario: nome,
+        sobrenomeUsuario: sobrenome,
+        emailUsuario: email,
+        senhaUsuario: senha,
+        codigoUsuario: codigo,
+        opcaoUsuario: select,
+      };
 
-      listaUser.push({
-        nomeCad: nome.value,
-        sobrenomeCad: sobrenome.value,
-        emailCad: email.value,
-        senhaCad: senha.value,
-        codigoCad: codigo.value,
-        opcaoCad: variavel,
-      });
-
-      localStorage.setItem("listaUser", JSON.stringify(listaUser));
+      listaUser.push(novoUsuario);
+      localStorage.setItem("usuarios", JSON.stringify(listaUser));
 
       if (senha.value != confirmaSenha.value) {
         alert("Senha incorreta");
