@@ -11,16 +11,19 @@
     />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/tiaw2022-manha-carona-universitaria/codigo/login/style.css" />
-    <script type="text/javascript" src="/tiaw2022-manha-carona-universitaria/codigo/login/script.js"></script>
-    <script type="text/javascript" src="/tiaw2022-manha-carona-universitaria/codigo/cadastro/js/dados.js"></script>
+    <link rel="stylesheet" href="/codigo/login/style.css" />
+    <script type="text/javascript" src="/codigo/login/script.js"></script>
+    <script type="text/javascript" src="/codigo/cadastro/js/dados.js"></script>
     <title>Pagina de Login</title>
   </head>
 
   <header>
     <nav class="navbar">
       <div class="container-fluid">
-        <img src="/tiaw2022-manha-carona-universitaria/codigo/login/img/logo2.png" alt="logo">
+        <img
+          src="/tiaw2022-manha-carona-universitaria/codigo/login/img/logo2.png"
+          alt="logo"
+        />
         <a class="navbar-brand" href="#">Pagina inicial</a>
       </div>
     </nav>
@@ -60,8 +63,16 @@
               <a href="">Esqueceu a senha?</a>
             </div>
 
-            <button onclick="logar()" type="button" id="btn"class="btn btn-primary">Entrar</button>
+            <button
+              onclick="logar()"
+              type="button"
+              id="btn"
+              class="btn btn-primary"
+            >
+              Entrar
+            </button>
           </form>
+
           <div class="cadastro">
             <p>
               <strong>Primeira vez aqui?</strong>
@@ -71,6 +82,23 @@
         </div>
       </div>
     </div>
+    <script>
+      window.onload = function verificarSenha() {
+        var senha = document.getElementById("inputPassword");
+        senha.addEventListener("keyup", () => {
+          if (senha.value.length <= 2) {
+            senha.setAttribute("style", "border-color: red");
+            validSenha = false;
+            msgError.setAttribute("style", "display: block");
+            msgSuccess.innerHTML = "";
+            msgSuccess.setAttribute("style", "display: none");
+          } else {
+            senha.setAttribute("style", "border-color: green");
+            validSenha = true;
+          }
+        });
+      };
+    </script>
   </body>
   <footer>
     <div class="rod">

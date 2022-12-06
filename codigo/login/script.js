@@ -1,42 +1,33 @@
 // Função para verificar o cadastro do
-window.onload = function(){
-  var senha = document.getElementById("inputPassword");
-  console.log("oi")
-  senha.addEventListener("keyup", () => {
-    if (senha.value.length <= 2) {
-      senha.setAttribute("style", "border-color: red");
-      validSenha = false;
-      msgError.setAttribute("style", "display: block");
-      msgSuccess.innerHTML = "";
-      msgSuccess.setAttribute("style", "display: none");
-    } else {
-      senha.setAttribute("style", "border-color: green");
-      validSenha = true;
-    } 
-  });
-}
+var listaUser = JSON.parse(localStorage.getItem("usuarios"));
 
 function logar() {
   var email = document.getElementById("inputEmail");
   var senha = document.getElementById("inputPassword");
-  var cadEmail = localStorage.getItem("emailUser");
-  var cadSenha = localStorage.getItem("senhaUser");
-  
-  const parsedEmail = cadEmail.slice(2, cadEmail.length - 2);
-  const parsedSenha = cadSenha.slice(2, cadSenha.length - 2);
-  
-  if (email.value === parsedEmail && senha.value === parsedSenha) {
-    alert("Usuario autenticado!");
-    window.location.href =
-    "/codigo/tela principal/index.html";
-  } else {
+  var encontrado = "Nao";
+  for (let i = 0; i < listaUser.length; i++) {
+    const usuario = listaUser[i];
+    if (
+      email.value === listaUser[i].emailUsuario &&
+      senha.value === listaUser[i].senhaUsuario
+    ) {
+      alert("Usuario Autenticado");
+      encontrado = "Sim";
+      var codUsuario = listaUser[i].codigoUsuario;
+      window.location.href = "/codigo/tela principal/index.html#" + codUsuario;
+    } else if (
+      email.value === listaUser[i].emailUsuario &&
+      senha.value != listaUser[i].senhaUsuario
+    ) {
+      alert("Email ou senha invalidos");
+      encontrado = "Indefinido";
+    }
+  }
+  if (encontrado === "Nao") {
     alert("Email ou senha invalidos!");
   }
-  if (senha.value.length <= 2) {
-    senha.setAttribute("style", "border-color: red");
-    validSenha = false;
-    alert("Preencha todos os campos corretamente antes de logar!")
-    /*  msgError.setAttribute("style", "display: block");
+}
+/*  msgError.setAttribute("style", "display: block");
     msgError.innerHTML =
       "<strong>Preencha todos os campos corretamente antes de logar!</strong>";
         msgError.style.color = "#ac0808";
@@ -47,9 +38,3 @@ function logar() {
         
     msgSuccess.innerHTML = "";
     msgSuccess.setAttribute("style", "display: none"); */
-  }
-  
-   
-} 
-
-

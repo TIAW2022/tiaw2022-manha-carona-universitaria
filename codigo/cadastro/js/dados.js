@@ -1,5 +1,9 @@
 window.onload = function () {
-  var listaUser = [];
+  
+  var listaUser = JSON.parse(localStorage.getItem("usuarios"));
+  if(!listaUser){
+    listaUser = [];
+  }
 
   var foto = document.querySelector("#picture__input");
 
@@ -113,12 +117,12 @@ window.onload = function () {
       validCodigo
     ) {
       var novoUsuario = {
-        nomeUsuario: nome,
-        sobrenomeUsuario: sobrenome,
-        emailUsuario: email,
-        senhaUsuario: senha,
-        codigoUsuario: codigo,
-        opcaoUsuario: select,
+        "nomeUsuario": nome,
+        "sobrenomeUsuario": sobrenome,
+        "emailUsuario": email,
+        "senhaUsuario": senha,
+        "codigoUsuario": codigo,
+        "opcaoUsuario": select,
       };
 
       listaUser.push(novoUsuario);
