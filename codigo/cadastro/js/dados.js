@@ -1,7 +1,6 @@
 window.onload = function () {
-  
   var listaUser = JSON.parse(localStorage.getItem("usuarios"));
-  if(!listaUser){
+  if (!listaUser) {
     listaUser = [];
   }
 
@@ -82,21 +81,50 @@ window.onload = function () {
     }
   });
 
-  foto.addEventListener("change", () => {
-    const fr = new FileReader();
+  // Máscara de telefone
 
-    fr.readAsDataURL(foto.files[0]);
+  function mascaraTelefone( campo ) {
+      
+    function trata( valor,  isOnBlur ) {		
+     valor = valor.replace(/\D/g,"");                      
+     valor = valor.replace(/^(\d{2})(\d)/g,"($1)$2");      
+     if( isOnBlur ) {		   
+        valor = valor.replace(/(\d)(\d{4})$/,"$1-$2");   
+     } else {
+        valor = valor.replace(/(\d)(\d{3})$/,"$1-$2"); 
+     }
+     return valor;
+    }
+    
+    campo.onkeypress = function (evt) {		 
+     var code = (window.event)? window.event.keyCode : evt.which;   
+     var valor = this.value		
+     if(code > 57 || (code < 48 && code != 8 ))  {
+        return false;
+     } else {
+        this.value = trata(valor, false);
+     }
+    }
+    
+    campo.onblur = function() {
+     
+    var valor = this.value;
+     if( valor.length < 13 ) {
+        this.value = ""
+     }else {      
+        this.value = trata( this.value, true );
+     }
+    }
+    
+    campo.maxLength = 14;
+ }
 
-    fr.addEventListener("load", () => {
-      const url = fr.result;
-
-      localStorage.setItem("my-image", url);
-    });
-  });
+ mascaraTelefone(document.getElementById('telefone'));
 
   cadastro1.onclick = function cadastrar() {
     var nome = document.querySelector("#nome").value;
     var sobrenome = document.querySelector("#sobrenome").value;
+    var telefone = document.querySelector("#telefone").value;
     var email = document.querySelector("#email").value;
     var senha = document.querySelector("#senha").value;
     var confirmaSenha = document.querySelector("#confirmaSenha").value;
@@ -130,13 +158,14 @@ window.onload = function () {
       validCodigo
     ) {
       var novoUsuario = {
-        "nomeUsuario": nome,
-        "sobrenomeUsuario": sobrenome,
-        "emailUsuario": email,
-        "senhaUsuario": senha,
-        "codigoUsuario": codigo,
-        "opcaoUsuario": select,
-        "fotoUsuario": foto
+        nomeUsuario: nome,
+        sobrenomeUsuario: sobrenome,
+        telefoneUsuario: telefone,
+        emailUsuario: email,
+        senhaUsuario: senha,
+        codigoUsuario: codigo,
+        opcaoUsuario: select,
+        fotoUsuario: foto
       };
 
       listaUser.push(novoUsuario);
@@ -155,11 +184,10 @@ window.onload = function () {
         msgError.setAttribute("style", "display: none");
         msgError.innerHTML = "";
         setTimeout(() => {
-        window.location.href =
-          "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
-      }, 3000);
+          window.location.href =
+            "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
+        }, 3000);
       }
-
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
