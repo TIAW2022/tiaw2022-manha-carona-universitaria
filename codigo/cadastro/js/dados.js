@@ -82,7 +82,6 @@ window.onload = function () {
     }
   });
 
-  /*
   foto.addEventListener("change", () => {
     const fr = new FileReader();
 
@@ -94,7 +93,6 @@ window.onload = function () {
       localStorage.setItem("my-image", url);
     });
   });
-  */
 
   cadastro1.onclick = function cadastrar() {
     var nome = document.querySelector("#nome").value;
@@ -104,7 +102,19 @@ window.onload = function () {
     var confirmaSenha = document.querySelector("#confirmaSenha").value;
     var codigo = document.querySelector("#codigo").value;
     var select = document.querySelector("#opcoes").value;
-    var foto = document.querySelector("#picture__input").value;
+    var foto = document.querySelector("#picture__input");
+
+    foto.addEventListener("change", () => {
+      const fr = new FileReader();
+  
+      fr.readAsDataURL(foto.files[0]);
+  
+      fr.addEventListener("load", () => {
+        const url = fr.result;
+  
+        localStorage.setItem("my-image", url);
+      });
+    });
 
     var msgError = document.querySelector("#msgError");
     var msgSuccess = document.querySelector("#msgSuccess");
@@ -124,7 +134,6 @@ window.onload = function () {
         "senhaUsuario": senha,
         "codigoUsuario": codigo,
         "opcaoUsuario": select,
-        "fotoUsuario": foto
       };
 
       listaUser.push(novoUsuario);
