@@ -5,8 +5,6 @@ window.onload = function () {
     listaUser = [];
   }
 
-  var foto = document.querySelector("#picture__input");
-
   var validNome = false;
   var validSobrenome = false;
   var validEmail = false;
@@ -65,7 +63,7 @@ window.onload = function () {
     }
   });
   confirmaSenha.addEventListener("keyup", () => {
-    if (confirmaSenha.value.length <= 5) {
+    if (senha.value != confirmaSenha.value) {
       confirmaSenha.setAttribute("style", "border-color: red");
       validConfirmSenha = false;
     } else {
@@ -84,6 +82,7 @@ window.onload = function () {
     }
   });
 
+  /*
   foto.addEventListener("change", () => {
     const fr = new FileReader();
 
@@ -95,6 +94,7 @@ window.onload = function () {
       localStorage.setItem("my-image", url);
     });
   });
+  */
 
   cadastro1.onclick = function cadastrar() {
     var nome = document.querySelector("#nome").value;
@@ -102,8 +102,9 @@ window.onload = function () {
     var email = document.querySelector("#email").value;
     var senha = document.querySelector("#senha").value;
     var confirmaSenha = document.querySelector("#confirmaSenha").value;
-    var select = document.querySelector("#opcoes").value;
     var codigo = document.querySelector("#codigo").value;
+    var select = document.querySelector("#opcoes").value;
+    var foto = document.querySelector("#picture__input").value;
 
     var msgError = document.querySelector("#msgError");
     var msgSuccess = document.querySelector("#msgSuccess");
@@ -123,6 +124,7 @@ window.onload = function () {
         "senhaUsuario": senha,
         "codigoUsuario": codigo,
         "opcaoUsuario": select,
+        "fotoUsuario": foto
       };
 
       listaUser.push(novoUsuario);
@@ -140,12 +142,12 @@ window.onload = function () {
         msgSuccess.innerHTML = "<strong>Cadastrado com sucesso!</strong>";
         msgError.setAttribute("style", "display: none");
         msgError.innerHTML = "";
-      }
-
-      setTimeout(() => {
+        setTimeout(() => {
         window.location.href =
           "http://127.0.0.1:5500/tiaw2022-manha-carona-universitaria/codigo/login/index.html";
       }, 3000);
+      }
+
     } else {
       msgError.setAttribute("style", "display: block");
       msgError.innerHTML =
