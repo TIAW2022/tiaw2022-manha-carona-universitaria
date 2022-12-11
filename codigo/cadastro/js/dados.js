@@ -4,7 +4,7 @@ window.onload = function () {
   if(!listaUser){
     listaUser = [];
   }
-
+oi 
   var validNome = false;
   var validSobrenome = false;
   var validEmail = false;
