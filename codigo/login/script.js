@@ -14,7 +14,7 @@ function logar() {
       alert("Usuario Autenticado");
       encontrado = "Sim";
       var codUsuario = listaUser[i].codigoUsuario;
-      window.location.href = "/codigo/tela principal/index.html#" + codUsuario;
+      window.location.href = "/codigo/tela principal-2/index.html#" + codUsuario;
     } else if (
       email.value === listaUser[i].emailUsuario &&
       senha.value != listaUser[i].senhaUsuario
