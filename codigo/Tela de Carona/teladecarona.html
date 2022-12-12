@@ -44,40 +44,6 @@
   </header>
   
   <div class="pesquisa col-12">
-    <div class="panel">
-      <div class="row">
-        <div class="trajeto col-lg-8 col-md-8 col-6">
-          <input
-          type="Informar trajeto:"
-          class="form-control"
-          id="inputTrajeto"
-          placeholder="Informar trajeto:"
-          />
-        </div>
-        <div class="button col-lg-1 col-md-2 col-6">
-          <button type="submit" class="btn btn-secondary">Buscar</button>
-        </div>           
-      </div>
-      
-    </div>
-    <div class="menu row">
-      <div class="check col-xl-6 col-lg-12 col-md-12 col-12">
-        <p><strong>Quem você busca?</strong></p>
-      </div>
-      <div class="check col-xl-2 col-lg-7 col-md-7 col-7">
-        <div class="checkbox">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label for="html"><strong>Motorista</strong></label>
-        </div>
-      </div>
-      <div class="check col-xl-2 col-lg-7 col-md-7 col-7">
-        <div class="checkbox">
-          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label for="html"><strong>Caroneiro</strong></label>
-        </div>
-    </div>
-    </div>
-    </div>
   </div>
   <body id="teladecarona">
     <div class="container">
@@ -103,6 +69,7 @@
                             <div class="texto col-lg-8 col-md-10 col-12">
                               <h1><strong>${listaUser[i].nomeUsuario} ${listaUser[i].sobrenomeUsuario}</strong></h1>
                               <p>${listaUser[i].tipoUsuario}</p>
+                              <h6><strong>${listaUser[i].opcaoUsuario}</strong></h6>
                             <div class="aceitar">
                               <a href="https://api.whatsapp.com/send?phone=${listaUser[i].telefoneUsuario}"><button type="submit" class="btn btn-info"> Aceitar carona! </button></a>
                             </div>  
