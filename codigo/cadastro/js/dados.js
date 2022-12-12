@@ -92,6 +92,7 @@ window.onload = function () {
     }
   });
 
+  /*
   // Máscara de telefone
 
   function mascaraTelefone( campo ) {
@@ -131,6 +132,7 @@ window.onload = function () {
  }
 
  mascaraTelefone(document.getElementById('telefone'));
+ */
 
   cadastro1.onclick = function cadastrar() {
     var nome = document.querySelector("#nome").value;
