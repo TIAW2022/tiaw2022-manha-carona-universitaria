@@ -36,12 +36,6 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Carona</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Cadastrar</a>
-          </li>
         </ul>
       </div>
       </div>
@@ -62,19 +56,7 @@
         </div>
         <div class="button col-lg-1 col-md-2 col-6">
           <button type="submit" class="btn btn-secondary">Buscar</button>
-        </div>
-        <div class="texto col-lg-2 col-md-1 col-6">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filtros </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Carro</a>
-              <a class="dropdown-item" href="#">Moto</a>
-              <a class="dropdown-item" href="#">Professor</a>
-              <a class="dropdown-item" href="#">Aluno</a>
-              <a class="dropdown-item" href="#">Funcionário</a>
-            </div>
-          </div>            
+        </div>           
       </div>
       
     </div>
@@ -109,70 +91,29 @@
                 </div>
               <script>
               let str = ''
-              var cadNome = localStorage.getItem("nomeUser");
-              var cadSobrenome = localStorage.getItem("sobrenomeUser")
-              const parsedcadNome = cadNome.slice(2, cadNome.length - 2);
-              const parsedcadSobre = cadSobrenome.slice(2, cadSobrenome.length - 2);
-              console.log(parsedcadNome)
-              str += `<div class="main-div col-12">
+              var listaUser = JSON.parse(localStorage.getItem("usuarios"));
+              for(let i = 0; i < listaUser.length; i++)
+              {
+                str += `<div class="main-div col-12">
                         <div class="panel">
                           <div class="row">
                             <div class="foto col-lg-4 col-md-10 col-12">
                               <img src="Imagens/João.png">
                             </div>
                             <div class="texto col-lg-8 col-md-10 col-12">
-                              <h1><strong>${parsedcadNome} ${parsedcadSobre}</strong></h1>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae libero sed dui cursus maximus. 
-                                Cras lacinia tellus nec vestibulum gravida. In venenatis metus a turpis condimentum, a tempus nisl sodales. 
-                                Sed iaculis risus et neque cursus commodo. Maecenas ultrices erat ex, non efficitur diam sagittis eu. 
-                                Aliquam interdum nulla vel bibendum finibus. Aenean dapibus gravida laoreet. Aliquam pulvinar, orci ac dapibus 
-                                fringilla, neque urna ullamcorper velit, at consequat augue enim ut nisl. Cras aliquam egestas iaculis. 
-                                Cras scelerisque ac velit eu feugiat. Nullam faucibus in felis in rutrum. Duis efficitur condimentum erat. 
-                                Quisque non fermentum tellus. Quisque quis pellentesque purus.</p>
+                              <h1><strong>${listaUser[i].nomeUsuario} ${listaUser[i].sobrenomeUsuario}</strong></h1>
+                              <p>${listaUser[i].tipoUsuario}</p>
                             <div class="aceitar">
-                              <button type="submit" class="btn btn-info">Aceitar carona!</button>
+                              <a href="https://api.whatsapp.com/send?phone=${listaUser[i].telefoneUsuario}"><button type="submit" class="btn btn-info"> Aceitar carona! </button></a>
                             </div>  
                         </div> 
                   </div>
               </div>
            </div>`
+              } 
+             
               document.getElementById('tela').innerHTML = str
             </script>
-           
-
-        <div class="main-div col-12">
-          <div class="panel">
-            <div class="row">
-              <div class="foto col-lg-4 col-md-10 col-12">
-                <img src="Imagens/Hélio.png">
-              </div>
-              <div class="texto col-lg-8 col-md-10 col-12">
-                <h1><strong>Hélio Silva</strong></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae libero sed dui cursus maximus. Cras lacinia tellus nec vestibulum gravida. In venenatis metus a turpis condimentum, a tempus nisl sodales. Sed iaculis risus et neque cursus commodo. Maecenas ultrices erat ex, non efficitur diam sagittis eu. Aliquam interdum nulla vel bibendum finibus. Aenean dapibus gravida laoreet. Aliquam pulvinar, orci ac dapibus fringilla, neque urna ullamcorper velit, at consequat augue enim ut nisl. Cras aliquam egestas iaculis. Cras scelerisque ac velit eu feugiat. Nullam faucibus in felis in rutrum. Duis efficitur condimentum erat. Quisque non fermentum tellus. Quisque quis pellentesque purus.</p>
-                <div class="aceitar">
-                  <button type="submit" class="btn btn-info">Aceitar carona!</button>
-                </div>  
-              </div>
-            </div>
-          </div>
-          
-        </div>
-
-        <div class="main-div col-12">
-          <div class="panel">
-            <div class="row">
-              <div class="foto col-lg-4 col-md-10 col-12">
-                <img src="Imagens/Vitor.png">
-              </div>
-              <div class="col-lg-8 col-md-10 col-12">
-                <h1><strong>Vitor Gonçalves</strong></h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae libero sed dui cursus maximus. Cras lacinia tellus nec vestibulum gravida. In venenatis metus a turpis condimentum, a tempus nisl sodales. Sed iaculis risus et neque cursus commodo. Maecenas ultrices erat ex, non efficitur diam sagittis eu. Aliquam interdum nulla vel bibendum finibus. Aenean dapibus gravida laoreet. Aliquam pulvinar, orci ac dapibus fringilla, neque urna ullamcorper velit, at consequat augue enim ut nisl. Cras aliquam egestas iaculis. Cras scelerisque ac velit eu feugiat. Nullam faucibus in felis in rutrum. Duis efficitur condimentum erat. Quisque non fermentum tellus. Quisque quis pellentesque purus.</p>
-                <div class="aceitar">
-                  <button type="submit" class="btn btn-info">Aceitar carona!</button>
-                </div>  
-              </div>
-            </div>
-          </div>
           
         </div>
         
