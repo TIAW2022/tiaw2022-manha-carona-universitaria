@@ -6,6 +6,7 @@ window.onload = function () {
 
   var validNome = false;
   var validSobrenome = false;
+  var validTelefone = false;
   var validEmail = false;
   var validSenha = false;
   var validConfirmSenha = false;
@@ -39,6 +40,16 @@ window.onload = function () {
     } else {
       sobrenome.setAttribute("style", "border-color: green");
       validSobrenome = true;
+    }
+  });
+
+  telefone.addEventListener("keyup", () => {
+    if (telefone.value.length <= 10) {
+      telefone.setAttribute("style", "border-color: red");
+      validTelefone = false;
+    } else {
+      telefone.setAttribute("style", "border-color: green");
+      validTelefone = true;
     }
   });
 
